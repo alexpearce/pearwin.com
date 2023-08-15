@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pearwin</title>
+  <meta name="description" content="A family." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Favicons generated with https://favicon.io. -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+
+    :root {
+      --background-color: #fbc1d3;
+      --text-color: #e33948;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      /* Scale the font with viewport width. */
+      font-size: clamp(32px, 15vw, 128px);
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--background-color);
+    }
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-family: "Caprasimo", serif;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    /* Emulate a stroke around the first character to clip the
+       underline effect from around the descender. */
+    h1::first-letter {
+      text-shadow:
+       -2px -2px 0 var(--background-color),
+        2px -2px 0 var(--background-color),
+       -2px  2px 0 var(--background-color),
+        2px  2px 0 var(--background-color);
+    }
+    h1, a {
+      color: var(--text-color);
+    }
+    a {
+      position: relative;
+      text-decoration: none;
+    }
+    /* Animate a solid underline sliding in and out on hover. */
+    a::after {
+      content: '';
+      position: absolute;
+      /* Ensure sibling underlines overlap during animations. */
+      width: 101%;
+      height: 0.05em;
+      bottom: 0.1em;
+      left: 0;
+      z-index: -1;
+      background-color: var(--text-color);
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    a:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  </style>
+</head>
+<body>
+  <h1><a href="https://alex.pearwin.com">pear</a><a href="https://lauren.pearwin.com">win</a>.</h1>
+</body>
+</html>
